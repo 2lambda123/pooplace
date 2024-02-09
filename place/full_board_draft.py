@@ -20,6 +20,20 @@ from place.user import UnauthorizedError
 logger = logging.getLogger()
 
 def get_board(access_token_in):
+	"""Purpose:
+	This function connects to a WebSocket server and obtains board images from Reddit's Hot Potato game.
+	Parameters:
+	- access_token_in (str): The access token used to authenticate the connection to the WebSocket server.
+	Returns:
+	- board (numpy array): A 2x2 numpy array containing the four board images obtained from the WebSocket server.
+	Processing Logic:
+	- Connects to the WebSocket server and sends a connection initialization message.
+	- Obtains the canvas configuration details from the server.
+	- Opens multiple canvas sockets and requests the images from the server.
+	- Receives and stores the images in a list.
+	- Closes the canvas sockets and the WebSocket connection.
+	- Combines the images into a 2x2 numpy array and returns it as the board."""
+	
 	logger.debug("Connecting and obtaining board images")
 	while True:
 		try:
