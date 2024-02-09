@@ -126,7 +126,7 @@ def get_board(access_token_in):
 									requests.get(
 										msg["data"]["name"],
 										stream=True,
-									).content
+									timeout=60).content
 								)
 							)
 					)
